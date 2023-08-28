@@ -1,0 +1,6 @@
+[submodule "SplITS-Experiments"]
+	path = SplITS-Experiments
+	url = https://github.com/SplITS-Fuzzer/SplITS-Experiments
+[submodule "fuzzware"]
+	path = fuzzware
+	url = https://github.com/SplITS-Fuzzer/fuzzware
