@@ -1,5 +1,19 @@
 # SplITS
 
+SplITS is an automated fuzzing framework focused on solving magic strings in monolithic firmware. We support firmware built for ARM Cortex-M microcontrollers. Our feedback guided search efficiently identifies non-contiguous bytes that are used to form a string, allowing them to be easily replaced. We also include additional coverage instrumentation to ensure test inputs that load strings of suitable lengths for replacement are saved for further fuzzing.
+
+You can read the full paper, accepted to ESORICS '23, regarding our work [here](https://arxiv.org/abs/2308.07860).
+
+# Cite Us
+```
+@inproceedings{splits,
+title = {{SplITS}: Split Input-to-State Mapping for Effective Firmware Fuzzing},
+author = {Guy Farrelly and Paul Quirk and Salil S. Kanhere and Seyit Camtepe and Damith C. Ranasinghe},
+booktitle = {Proceedings of the 28th European Symposium on Research in Computer Security (ESORICS)},
+year = {2023}
+}
+```
+
 # Installing SplITS
 SplITS is implemented on top of Fuzzware, and follows a similar installation process. We provide the following commands as an example based on Ubuntu 20.04.
 
@@ -20,7 +34,15 @@ git submodule update --init --recursive
 cd fuzzware
 ./install_local.sh
 ```
-
+# Repository Structure
+```
+- fuzzware                  Main Fuzzer Implementation, built on the existing Fuzzware framework
+- SplITS-Experiments        Repository for SplITS Experimentation
+    - Crashes               Scripts and Inputs for Reproduction of Newly Discovered Crashes
+    - Fuzzing               Dataset for Fuzzing Test Binaries
+- Images                    Miscellaneous items for documentation
+- README                    Installation and Operating Instructions
+```
 
 # Instructions
 SplITS can used using the Fuzzware style commands. AFL++ mode with Split Input To State is enabled by default.
